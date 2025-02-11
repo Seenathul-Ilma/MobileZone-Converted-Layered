@@ -6,6 +6,7 @@ import lk.ijse.gdse71.mobilezone.dto.OrderReturnDTO;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Map;
 
 public interface OrderReturnBO extends SuperBO {
     String getNextOrderReturnId() throws SQLException, ClassNotFoundException;
@@ -13,4 +14,6 @@ public interface OrderReturnBO extends SuperBO {
     boolean saveReturnDetailsList(ArrayList<OrderDetailDTO> orderDetailsDTOS) throws SQLException, ClassNotFoundException;
 
     boolean saveOrderReturn(OrderReturnDTO orderReturnDTO) throws SQLException;
+
+    Map<Integer, Integer> getMonthlyOrderReturnsData() throws SQLException, ClassNotFoundException;
 }

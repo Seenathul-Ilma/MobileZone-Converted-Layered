@@ -6,10 +6,7 @@ import javafx.scene.chart.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.gdse71.mobilezone.bo.BOFactory;
-import lk.ijse.gdse71.mobilezone.bo.custom.ChartBO;
-import lk.ijse.gdse71.mobilezone.bo.custom.ExpenseBO;
-import lk.ijse.gdse71.mobilezone.bo.custom.OrderBO;
-import lk.ijse.gdse71.mobilezone.bo.custom.QueryBO;
+import lk.ijse.gdse71.mobilezone.bo.custom.*;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -72,6 +69,7 @@ public class DashboardController implements Initializable {
     QueryBO queryBO = (QueryBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.QUERY);
     ExpenseBO expenseBO = (ExpenseBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.EXPENSES);
     OrderBO orderBO = (OrderBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.ORDER);
+    OrderReturnBO orderReturnBO = (OrderReturnBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.ORDER_RETURN);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -191,7 +189,8 @@ public class DashboardController implements Initializable {
             // 2nd Line for order returns per month
             //Map<Integer, Integer> data2 = chartDataModel.getMonthlyOrderReturnsData();
             //Map<Integer, Integer> data2 = chartDAO.getMonthlyOrderReturnsData();
-            Map<Integer, Integer> data2 = chartBO.getMonthlyOrderReturnsData();
+            //Map<Integer, Integer> data2 = chartBO.getMonthlyOrderReturnsData();
+            Map<Integer, Integer> data2 = orderReturnBO.getMonthlyOrderReturnsData();
 
             XYChart.Series<Number, Number> series2 = new XYChart.Series<>();
             series2.setName("Order Returns");

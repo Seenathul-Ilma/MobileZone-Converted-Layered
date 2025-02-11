@@ -18,6 +18,7 @@ import lk.ijse.gdse71.mobilezone.entity.OrderReturn;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Map;
 
 public class OrderReturnBOImpl implements OrderReturnBO {
     //OrdersDAOImpl ordersDAO = new OrdersDAOImpl();
@@ -140,4 +141,10 @@ public class OrderReturnBOImpl implements OrderReturnBO {
     public String getNextOrderReturnId() throws SQLException, ClassNotFoundException {
         return orderReturnDAO.getNextId();
     }
+
+    @Override
+    public Map<Integer, Integer> getMonthlyOrderReturnsData() throws SQLException, ClassNotFoundException {
+        return orderReturnDAO.getMonthlyOrderReturnsData();
+    }
+
 }

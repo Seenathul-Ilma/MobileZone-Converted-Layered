@@ -16,9 +16,9 @@ public class ChartBOImpl implements ChartBO {
         return chartDAO.getMonthlyOrderData();
     }*/
 
-    public Map<Integer, Integer> getMonthlyOrderReturnsData() throws SQLException, ClassNotFoundException {
+    /*public Map<Integer, Integer> getMonthlyOrderReturnsData() throws SQLException, ClassNotFoundException {
         return chartDAO.getMonthlyOrderReturnsData();
-    }
+    }*/
 
     public Map<Integer, Integer> getMonthlyPurchasesData() throws SQLException, ClassNotFoundException {
         return chartDAO.getMonthlyPurchasesData();
