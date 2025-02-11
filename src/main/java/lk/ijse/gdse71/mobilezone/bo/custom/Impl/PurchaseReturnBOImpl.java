@@ -127,6 +127,7 @@ public class PurchaseReturnBOImpl implements PurchaseReturnBO {
         return purchaseReturnDAO.getNextId();
     }
 
+    @Override
     public Map<Integer, Integer> getMonthlyPurchaseReturnData() throws SQLException, ClassNotFoundException {
         return purchaseReturnDAO.getMonthlyPurchaseReturnData();
     }

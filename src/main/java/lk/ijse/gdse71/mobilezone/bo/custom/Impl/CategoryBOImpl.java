@@ -14,6 +14,7 @@ public class CategoryBOImpl implements CategoryBO {
     //CategoryDAO categoryDAO = new CategoryDAOImpl();
     CategoryDAO categoryDAO = (CategoryDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOType.CATEGORY);
 
+    @Override
     public ArrayList<CategoryDTO> getAllCategories() throws SQLException, ClassNotFoundException {
         ArrayList<CategoryDTO> categoryDTOS = new ArrayList<>();
 
@@ -28,30 +29,34 @@ public class CategoryBOImpl implements CategoryBO {
         return categoryDTOS;
     }
 
+    @Override
     public String getNextCategoryId() throws SQLException, ClassNotFoundException {
         return categoryDAO.getNextId();
     }
 
+    @Override
     public boolean deleteCategory(String categoryId) throws SQLException, ClassNotFoundException {
         return categoryDAO.delete(categoryId);
     }
 
+    @Override
     public boolean saveCategory(CategoryDTO categoryDTO) throws SQLException, ClassNotFoundException {
         //return categoryDAO.save(new CategoryDTO(categoryDTO.getCategoryId(),categoryDTO.getCategoryName(),categoryDTO.getSubCategory(),categoryDTO.getDescription()));
         return categoryDAO.save(new Category(categoryDTO.getCategoryId(),categoryDTO.getCategoryName(),categoryDTO.getSubCategory(),categoryDTO.getDescription()));
     }
 
+    @Override
     public boolean updateCategory(CategoryDTO categoryDTO) throws SQLException, ClassNotFoundException {
         //return categoryDAO.update(new CategoryDTO(categoryDTO.getCategoryId(),categoryDTO.getCategoryName(),categoryDTO.getSubCategory(),categoryDTO.getDescription()));
         return categoryDAO.update(new Category(categoryDTO.getCategoryId(),categoryDTO.getCategoryName(),categoryDTO.getSubCategory(),categoryDTO.getDescription()));
     }
 
-
+    @Override
     public boolean checkValidCategoryId(String categoryId) throws SQLException, ClassNotFoundException {
         return categoryDAO.checkValidCategoryId(categoryId);
     }
 
-
+    @Override
     public ArrayList<String> getAllCategoryIds() throws SQLException, ClassNotFoundException {
         ArrayList<String> categories =  categoryDAO.getAllIds();
         ArrayList<String> categoryIds = new ArrayList<>();

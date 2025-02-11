@@ -17,6 +17,7 @@ public class SupplierBOImpl implements SupplierBO {
     //SupplierDAO supplierDAO = new SupplierDAOImpl();
     SupplierDAO supplierDAO = (SupplierDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOType.SUPPLIER);
 
+    @Override
     public ArrayList<SupplierDTO> getAllSuppliers() throws SQLException, ClassNotFoundException {
         ArrayList<SupplierDTO> supplierDTOS = new ArrayList<>();
 
@@ -40,6 +41,7 @@ public class SupplierBOImpl implements SupplierBO {
         return supplierDTOS;
     }
 
+    @Override
     public boolean saveSupplier(SupplierDTO supplierDTO) throws SQLException, ClassNotFoundException {
         //return supplierDAO.save(new SupplierDTO(
         return supplierDAO.save(new Supplier(
@@ -53,14 +55,17 @@ public class SupplierBOImpl implements SupplierBO {
         ));
     }
 
+    @Override
     public boolean deleteSupplier(String supplierId) throws SQLException, ClassNotFoundException {
         return supplierDAO.delete(supplierId);
     }
 
+    @Override
     public String getNextSupplierId() throws SQLException, ClassNotFoundException {
         return supplierDAO.getNextId();
     }
 
+    @Override
     public boolean updateSupplier(SupplierDTO supplierDTO) throws SQLException, ClassNotFoundException {
         //return supplierDAO.update(new SupplierDTO(
         return supplierDAO.update(new Supplier(
@@ -74,6 +79,7 @@ public class SupplierBOImpl implements SupplierBO {
         ));
     }
 
+    @Override
     //public SupplierDTO findSupplierById(String selectedSupplierId) throws SQLException, ClassNotFoundException {
     public SupplierDTO findSupplierById(String selectedSupplierId) throws SQLException, ClassNotFoundException {
         //return supplierDAO.findById(selectedSupplierId);
@@ -99,6 +105,7 @@ public class SupplierBOImpl implements SupplierBO {
         }
     }
 
+    @Override
     public ArrayList<String> getAllSupplierIds() throws SQLException, ClassNotFoundException {
             ArrayList<String> suppliers =  supplierDAO.getAllIds();
             ArrayList<String> supplierIds = new ArrayList<>();

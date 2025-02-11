@@ -6,16 +6,9 @@ import lk.ijse.gdse71.mobilezone.dao.custom.ItemDAO;
 import lk.ijse.gdse71.mobilezone.dao.custom.PurchaseDAO;
 import lk.ijse.gdse71.mobilezone.dao.custom.PurchaseDetailDAO;
 import lk.ijse.gdse71.mobilezone.dao.custom.QueryDAO;
-import lk.ijse.gdse71.mobilezone.dao.custom.impl.ItemDAOImpl;
-import lk.ijse.gdse71.mobilezone.dao.custom.impl.PurchaseDAOImpl;
-import lk.ijse.gdse71.mobilezone.dao.custom.impl.QueryDAOImpl;
 import lk.ijse.gdse71.mobilezone.db.DBConnection;
-import lk.ijse.gdse71.mobilezone.dto.OrderDTO;
-import lk.ijse.gdse71.mobilezone.dto.OrderDetailDTO;
 import lk.ijse.gdse71.mobilezone.dto.PurchaseDTO;
 import lk.ijse.gdse71.mobilezone.dto.PurchaseDetailDTO;
-import lk.ijse.gdse71.mobilezone.entity.Order;
-import lk.ijse.gdse71.mobilezone.entity.OrderDetail;
 import lk.ijse.gdse71.mobilezone.entity.Purchase;
 import lk.ijse.gdse71.mobilezone.entity.PurchaseDetail;
 
@@ -39,6 +32,7 @@ public class PurchaseBOImpl implements PurchaseBO {
     //ItemDAO itemDAO = new ItemDAOImpl();
     ItemDAO itemDAO = (ItemDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOType.ITEM);
 
+    @Override
     public boolean savePurchase(PurchaseDTO purchaseDTO) throws SQLException {
         Connection connection = DBConnection.getDbConnection().getConnection();
         try {
@@ -71,6 +65,7 @@ public class PurchaseBOImpl implements PurchaseBO {
         }
     }
 
+    @Override
     public boolean savePurchaseDetailsList(ArrayList<PurchaseDetailDTO> purchaseDetailDTOS) throws SQLException, ClassNotFoundException {
         ArrayList<PurchaseDetail> purchaseDetails = new ArrayList<>();
 
@@ -105,6 +100,7 @@ public class PurchaseBOImpl implements PurchaseBO {
         return true;
     }
 
+    @Override
     public ArrayList<String> getAllPurchaseIds() throws SQLException, ClassNotFoundException {
         ArrayList<String> purchases =  purchaseDAO.getAllIds();
         ArrayList<String> purchaseIds = new ArrayList<>();
@@ -115,6 +111,7 @@ public class PurchaseBOImpl implements PurchaseBO {
         return purchaseIds;
     }
 
+    @Override
     public PurchaseDetailDTO findItemByPurchaseId(String purchaseId, String selectedItemId) throws SQLException, ClassNotFoundException {
         //return purchaseDetailDAO.findById(purchaseId, selectedItemId);
 
@@ -138,10 +135,12 @@ public class PurchaseBOImpl implements PurchaseBO {
         }
     }
 
+    @Override
     public String getPurchaseReturnOrNot(String purchaseId, String selectedItemId) throws SQLException, ClassNotFoundException {
         return purchaseDetailDAO.getReturnOrNot(purchaseId, selectedItemId);
     }
 
+    @Override
     public PurchaseDTO findPurchaseById(String purchaseId) throws SQLException, ClassNotFoundException {
         //return purchaseDAO.findById(purchaseId);
 
@@ -163,10 +162,12 @@ public class PurchaseBOImpl implements PurchaseBO {
         }
     }
 
+    @Override
     public String confirmItemBought(String selectedPurchaseId, String selectedItemId) throws SQLException, ClassNotFoundException {
         return purchaseDetailDAO.confirmItemBought(selectedPurchaseId, selectedItemId);
     }
 
+    @Override
     public String getNextPurchaseId() throws SQLException, ClassNotFoundException {
         return purchaseDAO.getNextId();
     }

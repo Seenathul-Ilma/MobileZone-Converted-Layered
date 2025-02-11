@@ -27,5 +27,5 @@ public interface OrderBO extends SuperBO {
 
     Map<Integer, Integer> getMonthlyOrderData() throws SQLException, ClassNotFoundException;
 
-        //String confirmCustomerBought(String selectedCustomerId, String selectedOrderId, String selectedItemId) throws SQLException;
+    //String confirmCustomerBought(String selectedCustomerId, String selectedOrderId, String selectedItemId) throws SQLException;
 }

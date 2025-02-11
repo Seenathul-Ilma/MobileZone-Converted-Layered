@@ -13,6 +13,8 @@ public interface PurchaseBO extends SuperBO {
 
     boolean savePurchase(PurchaseDTO purchaseDTO) throws SQLException, ClassNotFoundException;
 
+    boolean savePurchaseDetailsList(ArrayList<PurchaseDetailDTO> purchaseDetailDTOS) throws SQLException, ClassNotFoundException;
+
     ArrayList<String> getAllPurchaseIds() throws SQLException, ClassNotFoundException;
 
     PurchaseDetailDTO findItemByPurchaseId(String purchaseId, String selectedItemId) throws SQLException, ClassNotFoundException;

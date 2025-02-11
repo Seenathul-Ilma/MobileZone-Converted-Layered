@@ -14,6 +14,7 @@ public class LogInCredentialsBOImpl implements LogInCredentialsBO {
     //LogInCredentialsDAO logInCredentialsDAO = new LogInCredentialsDAOImpl();
     LogInCredentialsDAO logInCredentialsDAO = (LogInCredentialsDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOType.LOG_IN_CREDENTIALS);
 
+    @Override
     public ArrayList<LogInCredentialsDTO> getAllCredentials() throws SQLException, ClassNotFoundException {
         ArrayList<LogInCredentialsDTO> logInCredentialsDTOS = new ArrayList<>();
 
@@ -33,6 +34,7 @@ public class LogInCredentialsBOImpl implements LogInCredentialsBO {
         return logInCredentialsDTOS;
     }
 
+    @Override
     public boolean saveCredential(LogInCredentialsDTO credentialDTO) throws SQLException, ClassNotFoundException {
         //return logInCredentialsDAO.save(new LogInCredentialsDTO(
         return logInCredentialsDAO.save(new LogInCredentials(
@@ -43,14 +45,17 @@ public class LogInCredentialsBOImpl implements LogInCredentialsBO {
         ));
     }
 
+    @Override
     public String getNextUserId() throws SQLException, ClassNotFoundException {
         return logInCredentialsDAO.getNextId();
     }
 
+    @Override
     public boolean deleteCredential(String userId) throws SQLException, ClassNotFoundException {
         return logInCredentialsDAO.delete(userId);
     }
 
+    @Override
     public boolean updateCredential(LogInCredentialsDTO credentialDTO) throws SQLException, ClassNotFoundException {
         //return logInCredentialsDAO.update(new LogInCredentialsDTO(
         return logInCredentialsDAO.update(new LogInCredentials(
@@ -61,14 +66,17 @@ public class LogInCredentialsBOImpl implements LogInCredentialsBO {
         ));
     }
 
+    @Override
     public String getAdminPassword() throws SQLException, ClassNotFoundException {
         return logInCredentialsDAO.getAdminPassword();
     }
 
+    @Override
     public String isExistUsernameAndPassword(String username, String password) throws SQLException, ClassNotFoundException {
         return logInCredentialsDAO.isExistUsernameAndPassword(username, password);
     }
 
+    @Override
     public ArrayList<String> getAllUserIds() throws SQLException, ClassNotFoundException {
         ArrayList<String> users =  logInCredentialsDAO.getAllIds();
         ArrayList<String> userIds = new ArrayList<>();
@@ -76,8 +84,10 @@ public class LogInCredentialsBOImpl implements LogInCredentialsBO {
         for (String userId : users) {
             userIds.add(userId);
         }
-        return userIds;    }
+        return userIds;
+    }
 
+    @Override
     public String isExistUsername(String username) throws SQLException {
         return logInCredentialsDAO.isExistUsername(username);
     }

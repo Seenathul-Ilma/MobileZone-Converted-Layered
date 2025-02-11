@@ -14,6 +14,7 @@ public class EmployeeBOImpl implements EmployeeBO {
     //EmployeeDAO employeeDAO = new EmployeeDAOImpl();
     EmployeeDAO employeeDAO = (EmployeeDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOType.EMPLOYEE);
 
+    @Override
     public ArrayList<EmployeeDTO> getAllEmployees() throws SQLException, ClassNotFoundException {
         ArrayList<EmployeeDTO> employeeDTOS = new ArrayList<>();
 
@@ -39,10 +40,12 @@ public class EmployeeBOImpl implements EmployeeBO {
         return employeeDTOS;
     }
 
+    @Override
     public String getNextEmployeeId() throws SQLException, ClassNotFoundException {
         return employeeDAO.getNextId();
     }
 
+    @Override
     public boolean saveEmployee(EmployeeDTO employeeDTO) throws SQLException, ClassNotFoundException {
         //return employeeDAO.save(new EmployeeDTO(
         return employeeDAO.save(new Employee(
@@ -59,10 +62,12 @@ public class EmployeeBOImpl implements EmployeeBO {
         ));
     }
 
+    @Override
     public boolean deleteEmployee(String employeeId) throws SQLException, ClassNotFoundException {
         return employeeDAO.delete(employeeId);
     }
 
+    @Override
     public boolean updateEmployee(EmployeeDTO employeeDTO) throws SQLException, ClassNotFoundException {
         //return employeeDAO.update(new EmployeeDTO(
         return employeeDAO.update(new Employee(
@@ -79,10 +84,12 @@ public class EmployeeBOImpl implements EmployeeBO {
         ));
     }
 
+    @Override
     public boolean checkUserIds(String selectedUserId) throws SQLException, ClassNotFoundException {
         return employeeDAO.checkUserIds(selectedUserId);
     }
 
+    @Override
     public ArrayList<String> getAllEmployeeIds() throws SQLException, ClassNotFoundException {
         ArrayList<String> employees =  employeeDAO.getAllIds();
         ArrayList<String> employeeIds = new ArrayList<>();
@@ -93,6 +100,7 @@ public class EmployeeBOImpl implements EmployeeBO {
         return employeeIds;
     }
 
+    @Override
     public boolean checkUserIds(String selectedUserId, String currentEmployeeId) throws SQLException, ClassNotFoundException {
         return employeeDAO.checkUserIds(selectedUserId, currentEmployeeId);
     }

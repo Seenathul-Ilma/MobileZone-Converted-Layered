@@ -16,6 +16,7 @@ public class ItemBOImpl implements ItemBO {
     //ItemDAO itemDAO = new ItemDAOImpl();
     ItemDAO itemDAO = (ItemDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOType.ITEM);
 
+    @Override
     public ArrayList<ItemDTO> getAllItems() throws SQLException, ClassNotFoundException {
         ArrayList<ItemDTO> itemDTOS = new ArrayList<>();
 
@@ -39,10 +40,12 @@ public class ItemBOImpl implements ItemBO {
         return itemDTOS;
     }
 
+    @Override
     public String getNextItemId() throws SQLException, ClassNotFoundException {
         return itemDAO.getNextId();
     }
 
+    @Override
     public boolean saveItem(ItemDTO itemDTO) throws SQLException, ClassNotFoundException {
         //return itemDAO.save(new ItemDTO(
         return itemDAO.save(new Item(
@@ -57,6 +60,7 @@ public class ItemBOImpl implements ItemBO {
         ));
     }
 
+    @Override
     public boolean updateItem(ItemDTO itemDTO) throws SQLException, ClassNotFoundException {
         //return itemDAO.update(new ItemDTO(
         return itemDAO.update(new Item(
@@ -71,10 +75,12 @@ public class ItemBOImpl implements ItemBO {
         ));
     }
 
+    @Override
     public boolean deleteItem(String itemId) throws SQLException, ClassNotFoundException {
         return itemDAO.delete(itemId);
     }
 
+    @Override
     public ArrayList<ItemDTO> checkLowStockItems() throws SQLException, ClassNotFoundException {
         //return itemDAO.checkLowStockItems();
 
@@ -100,10 +106,12 @@ public class ItemBOImpl implements ItemBO {
         return itemDTOS;
     }
 
+    @Override
     public boolean isItemTableEmpty() throws SQLException, ClassNotFoundException {
         return itemDAO.isEmpty();
     }
 
+    @Override
     public ArrayList<String> getAllItemIds() throws SQLException, ClassNotFoundException {
         ArrayList<String> items =  itemDAO.getAllIds();
         ArrayList<String> itemIds = new ArrayList<>();
@@ -114,6 +122,7 @@ public class ItemBOImpl implements ItemBO {
         return itemIds;
     }
 
+    @Override
     public ItemDTO findByItemId(String selectedItemId) throws SQLException, ClassNotFoundException {
         //return itemDAO.findById(selectedItemId);
 
@@ -139,6 +148,7 @@ public class ItemBOImpl implements ItemBO {
         }
     }
 
+    @Override
     public String confirmItemCategory(String selectedItemId) throws SQLException, ClassNotFoundException {
         return itemDAO.confirmItemCategory(selectedItemId);
     }

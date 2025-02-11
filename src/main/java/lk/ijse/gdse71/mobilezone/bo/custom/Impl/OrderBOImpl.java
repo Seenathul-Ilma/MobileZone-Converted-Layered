@@ -119,6 +119,7 @@ public class OrderBOImpl implements OrderBO {
         return true;
     }
 
+    @Override
     public String getNextOrderId() throws SQLException, ClassNotFoundException {
         return ordersDAO.getNextId();
     }
@@ -194,6 +195,7 @@ public class OrderBOImpl implements OrderBO {
         return orderDetailDAO.confirmItemBought(selectedOrderId, selectedItemId);
     }
 
+    @Override
     public Map<Integer, Integer> getMonthlyOrderData() throws SQLException, ClassNotFoundException {
         return ordersDAO.getMonthlyOrderData();
     }

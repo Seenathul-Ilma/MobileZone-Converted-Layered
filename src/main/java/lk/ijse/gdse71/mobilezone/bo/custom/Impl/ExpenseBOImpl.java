@@ -15,6 +15,7 @@ public class ExpenseBOImpl implements ExpenseBO {
     //ExpenseDAO expenseDAO = new ExpenseDAOImpl();
     ExpenseDAO expenseDAO = (ExpenseDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOType.EXPENSE);
 
+    @Override
     public ArrayList<ExpenseDTO> getAllExpenses() throws SQLException, ClassNotFoundException{
         ArrayList<ExpenseDTO> expenseDTOS = new ArrayList<>();
 
@@ -29,19 +30,17 @@ public class ExpenseBOImpl implements ExpenseBO {
         return expenseDTOS;
     }
 
+    @Override
     public String getNextExpenseId() throws SQLException, ClassNotFoundException {
         return expenseDAO.getNextId();
     }
 
+    @Override
     public boolean deleteExpense(String expId) throws SQLException, ClassNotFoundException {
         return expenseDAO.delete(expId);
     }
 
     @Override
-    public Map<String, Map<String, Double>> getMonthlyExpensesByCategory() throws SQLException, ClassNotFoundException {
-        return expenseDAO.getMonthlyExpensesByCategory();
-    }
-
     public boolean saveExpense(ExpenseDTO expenseDTO) throws SQLException, ClassNotFoundException {
         //return expenseDAO.save(new ExpenseDTO(
         return expenseDAO.save(new Expense(
@@ -53,6 +52,7 @@ public class ExpenseBOImpl implements ExpenseBO {
         ));
     }
 
+    @Override
     public boolean updateExpense(ExpenseDTO expenseDTO) throws SQLException, ClassNotFoundException {
         //return expenseDAO.update(new ExpenseDTO(
         return expenseDAO.update(new Expense(
@@ -62,6 +62,11 @@ public class ExpenseBOImpl implements ExpenseBO {
                 expenseDTO.getDate(),
                 expenseDTO.getExpCategory()
         ));
+    }
+
+    @Override
+    public Map<String, Map<String, Double>> getMonthlyExpensesByCategory() throws SQLException, ClassNotFoundException {
+        return expenseDAO.getMonthlyExpensesByCategory();
     }
 
     // not used in exp_controller

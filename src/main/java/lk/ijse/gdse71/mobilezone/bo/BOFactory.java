@@ -22,7 +22,7 @@ public class BOFactory {
 
     public enum BOTypes{
         CATEGORY, CUSTOMER, EMPLOYEE, EXPENSES, ITEM, LOG_IN_CREDENTIALS,
-        ORDER, ORDER_RETURN, PURCHASE, PURCHASE_RETURN, QUERY, SUPPLIER, CHART
+        ORDER, ORDER_RETURN, PURCHASE, PURCHASE_RETURN, QUERY, SUPPLIER
     }
 
     public SuperBO getBO(BOTypes boType){
@@ -51,8 +51,6 @@ public class BOFactory {
                 return new QueryBOImpl();
             case SUPPLIER:
                 return new SupplierBOImpl();
-            case CHART:
-                return new ChartBOImpl();
             default:
                 return null;
         }

@@ -61,7 +61,7 @@ public class DashboardController implements Initializable {
     //ChartDAOImpl chartDAO;
     //ChartDAO chartDAO;
     //ChartBOImpl chartBO;
-    ChartBO chartBO;
+    //ChartBO chartBO;
 
     //QueryDAO queryDAO = new QueryDAOImpl();
     //QueryDAO queryDAO = new QueryDAOImpl();
@@ -78,7 +78,7 @@ public class DashboardController implements Initializable {
         //chartDataModel = new ChartDataModel(); // Initialize your model class
         //chartDAO = new ChartDAOImpl();
         //chartBO = new ChartBOImpl();
-        chartBO = (ChartBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.CHART);
+        //chartBO = (ChartBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.CHART);
 
         setupLineChart();
         setupPieChart();

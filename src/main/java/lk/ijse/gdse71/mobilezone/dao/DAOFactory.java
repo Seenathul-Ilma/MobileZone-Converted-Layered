@@ -18,7 +18,7 @@ public class DAOFactory {
 
     public enum DAOType{
         CATEGORY, CUSTOMER, EMPLOYEE, EXPENSE, ITEM, LOG_IN_CREDENTIALS, ORDERS, ORDER_RETURN, ORDER_DETAIL,
-        PURCHASE, PURCHASE_RETURN, PURCHASE_DETAIL, SUPPLIER, QUERY, CHART
+        PURCHASE, PURCHASE_RETURN, PURCHASE_DETAIL, SUPPLIER, QUERY
     }
 
     public SuperDAO getDAO(DAOType type) {
@@ -51,8 +51,6 @@ public class DAOFactory {
                 return new SupplierDAOImpl();
             case QUERY:
                 return new QueryDAOImpl();
-            case CHART:
-                return new ChartDAOImpl();
             default:
                 return null;
         }

@@ -33,6 +33,7 @@ public class QueryDAOImpl implements QueryDAO {
         return "";
     }
 
+    @Override
     public void fetchSalesData(PieChart salesByCategoryPieChart) throws SQLException {
         String isReturned = "No";
         try {
@@ -53,6 +54,7 @@ public class QueryDAOImpl implements QueryDAO {
         }
     }
 
+    @Override
     public Map<String, Map<String, Integer>> getEmployeePerformanceByMonth() throws SQLException, ClassNotFoundException {
         Map<String, Map<String, Integer>> employeeData = new HashMap<>();
         ResultSet rst = SQLUtil.execute("SELECT e.name, DATE_FORMAT(o.orderDate, '%Y-%m') AS month, COUNT(o.orderId) AS total_sales " +

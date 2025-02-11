@@ -114,6 +114,7 @@ public class PurchaseDAOImpl implements PurchaseDAO {
         return null;
     }
 
+    @Override
     public Map<Integer, Integer> getMonthlyPurchasesData() throws SQLException, ClassNotFoundException {
         Map<Integer, Integer> purchaseData = new HashMap<>();
         ResultSet resultSet = SQLUtil.execute("SELECT MONTH(purchaseDate) AS month, COUNT(*) AS total_purchases FROM purchase GROUP BY MONTH(purchaseDate)");
