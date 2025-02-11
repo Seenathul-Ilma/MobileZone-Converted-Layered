@@ -6,6 +6,8 @@ import lk.ijse.gdse71.mobilezone.dao.SQLUtil;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class QueryDAOImpl implements QueryDAO {
 
@@ -49,5 +51,27 @@ public class QueryDAOImpl implements QueryDAO {
         }catch(SQLException e){
             e.printStackTrace();
         }
+    }
+
+    public Map<String, Map<String, Integer>> getEmployeePerformanceByMonth() throws SQLException, ClassNotFoundException {
+        Map<String, Map<String, Integer>> employeeData = new HashMap<>();
+        ResultSet rst = SQLUtil.execute("SELECT e.name, DATE_FORMAT(o.orderDate, '%Y-%m') AS month, COUNT(o.orderId) AS total_sales " +
+                "FROM employee e " +
+                "JOIN orders o ON e.employeeId = o.employeeId " +
+                "GROUP BY e.name, month " +
+                "ORDER BY month, e.name");
+
+        while (rst.next()) {
+            String employeeName = rst.getString("name");
+            String month = rst.getString("month");
+            int totalSales = rst.getInt("total_sales");
+
+            // Debugging: Print fetched data
+            System.out.println("Employee: " + employeeName + ", Month: " + month + ", Sales: " + totalSales);
+
+            employeeData.putIfAbsent(employeeName, new HashMap<>());
+            employeeData.get(employeeName).put(month, totalSales);
+        }
+        return employeeData;
     }
 }

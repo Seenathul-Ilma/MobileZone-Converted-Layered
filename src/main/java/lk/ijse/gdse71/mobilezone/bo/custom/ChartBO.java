@@ -7,7 +7,7 @@ import java.util.Map;
 
 public interface ChartBO extends SuperBO {
 
-    Map<String, Map<String, Integer>> getEmployeePerformanceByMonth() throws SQLException, ClassNotFoundException;
+    //Map<String, Map<String, Integer>> getEmployeePerformanceByMonth() throws SQLException, ClassNotFoundException;
 
     Map<String, Map<String, Double>> getMonthlyExpensesByCategory() throws SQLException, ClassNotFoundException;
 

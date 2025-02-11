@@ -100,7 +100,7 @@ public class DashboardController implements Initializable {
 
         //Map<String, Map<String, Integer>> employeeData = chartDataModel.getEmployeePerformanceByMonth();
         //Map<String, Map<String, Integer>> employeeData = chartDAO.getEmployeePerformanceByMonth();
-        Map<String, Map<String, Integer>> employeeData = chartBO.getEmployeePerformanceByMonth();
+        Map<String, Map<String, Integer>> employeeData = queryBO.getEmployeePerformanceByMonth();
 
         for (String name : employeeData.keySet()) {
             XYChart.Series<String, Number> series = new XYChart.Series<>();

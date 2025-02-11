@@ -100,7 +100,7 @@ public class ChartDAOImpl implements ChartDAO {
         return expenseData;
     }
 
-    public Map<String, Map<String, Integer>> getEmployeePerformanceByMonth() throws SQLException, ClassNotFoundException {
+    /*public Map<String, Map<String, Integer>> getEmployeePerformanceByMonth() throws SQLException, ClassNotFoundException {
         Map<String, Map<String, Integer>> employeeData = new HashMap<>();
         ResultSet rst = SQLUtil.execute("SELECT e.name, DATE_FORMAT(o.orderDate, '%Y-%m') AS month, COUNT(o.orderId) AS total_sales " +
                 "FROM employee e " +
@@ -120,7 +120,7 @@ public class ChartDAOImpl implements ChartDAO {
             employeeData.get(employeeName).put(month, totalSales);
         }
         return employeeData;
-    }
+    }*/
 
     @Override
     public ArrayList<Chart> getAll() throws SQLException, ClassNotFoundException {

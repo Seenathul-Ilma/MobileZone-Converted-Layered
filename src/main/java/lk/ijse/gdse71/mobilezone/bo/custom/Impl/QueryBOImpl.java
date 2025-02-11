@@ -7,6 +7,7 @@ import lk.ijse.gdse71.mobilezone.dao.custom.QueryDAO;
 import lk.ijse.gdse71.mobilezone.dao.custom.impl.QueryDAOImpl;
 
 import java.sql.SQLException;
+import java.util.Map;
 
 public class QueryBOImpl implements QueryBO {
     //QueryDAO queryDAO = new QueryDAOImpl();
@@ -23,6 +24,12 @@ public class QueryBOImpl implements QueryBO {
     public void fetchSalesData(PieChart salesByCategoryPieChart) throws SQLException, ClassNotFoundException {
         queryDAO.fetchSalesData(salesByCategoryPieChart);
     }
+
+    @Override
+    public Map<String, Map<String, Integer>> getEmployeePerformanceByMonth() throws SQLException, ClassNotFoundException {
+        return queryDAO.getEmployeePerformanceByMonth();
+    }
+
 
 }
 

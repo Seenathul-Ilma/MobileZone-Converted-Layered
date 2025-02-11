@@ -32,8 +32,8 @@ public class ChartBOImpl implements ChartBO {
         return chartDAO.getMonthlyExpensesByCategory();
     }
 
-    public Map<String, Map<String, Integer>> getEmployeePerformanceByMonth() throws SQLException, ClassNotFoundException {
+    /*public Map<String, Map<String, Integer>> getEmployeePerformanceByMonth() throws SQLException, ClassNotFoundException {
         return chartDAO.getEmployeePerformanceByMonth();
-    }
+    }*/
 
 }
