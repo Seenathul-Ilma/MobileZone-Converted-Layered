@@ -85,7 +85,7 @@ public class ChartDAOImpl implements ChartDAO {
         }
     }*/
 
-    public Map<String, Map<String, Double>> getMonthlyExpensesByCategory() throws SQLException, ClassNotFoundException {
+    /*public Map<String, Map<String, Double>> getMonthlyExpensesByCategory() throws SQLException, ClassNotFoundException {
         Map<String, Map<String, Double>> expenseData = new HashMap<>();
         ResultSet rst = SQLUtil.execute("select expCategory, DATE_FORMAT(date, '%Y-%m') AS month, SUM(amount) as total_expense from expenses group by expCategory, month order by month, expCategory");
 
@@ -98,7 +98,7 @@ public class ChartDAOImpl implements ChartDAO {
             expenseData.get(expCategory).put(month, totalExpense);
         }
         return expenseData;
-    }
+    }*/
 
     /*public Map<String, Map<String, Integer>> getEmployeePerformanceByMonth() throws SQLException, ClassNotFoundException {
         Map<String, Map<String, Integer>> employeeData = new HashMap<>();

@@ -9,7 +9,7 @@ import java.util.Map;
 public interface ChartDAO extends CrudDAO<Chart> {
     //Map<String, Map<String, Integer>> getEmployeePerformanceByMonth() throws SQLException, ClassNotFoundException;
 
-    Map<String, Map<String, Double>> getMonthlyExpensesByCategory() throws SQLException, ClassNotFoundException;
+    //Map<String, Map<String, Double>> getMonthlyExpensesByCategory() throws SQLException, ClassNotFoundException;
 
     Map<Integer, Integer> getMonthlyOrderData() throws SQLException, ClassNotFoundException;
 

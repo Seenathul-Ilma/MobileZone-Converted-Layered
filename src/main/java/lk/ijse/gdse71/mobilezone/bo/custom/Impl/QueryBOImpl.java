@@ -30,6 +30,4 @@ public class QueryBOImpl implements QueryBO {
         return queryDAO.getEmployeePerformanceByMonth();
     }
 
-
 }
-

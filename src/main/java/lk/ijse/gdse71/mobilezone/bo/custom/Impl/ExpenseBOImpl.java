@@ -9,6 +9,7 @@ import lk.ijse.gdse71.mobilezone.entity.Expense;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Map;
 
 public class ExpenseBOImpl implements ExpenseBO {
     //ExpenseDAO expenseDAO = new ExpenseDAOImpl();
@@ -34,6 +35,11 @@ public class ExpenseBOImpl implements ExpenseBO {
 
     public boolean deleteExpense(String expId) throws SQLException, ClassNotFoundException {
         return expenseDAO.delete(expId);
+    }
+
+    @Override
+    public Map<String, Map<String, Double>> getMonthlyExpensesByCategory() throws SQLException, ClassNotFoundException {
+        return expenseDAO.getMonthlyExpensesByCategory();
     }
 
     public boolean saveExpense(ExpenseDTO expenseDTO) throws SQLException, ClassNotFoundException {

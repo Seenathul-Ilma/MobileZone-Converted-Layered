@@ -7,6 +7,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.gdse71.mobilezone.bo.BOFactory;
 import lk.ijse.gdse71.mobilezone.bo.custom.ChartBO;
+import lk.ijse.gdse71.mobilezone.bo.custom.ExpenseBO;
 import lk.ijse.gdse71.mobilezone.bo.custom.QueryBO;
 
 import java.net.URL;
@@ -68,6 +69,7 @@ public class DashboardController implements Initializable {
     //QueryDAO queryDAO = new QueryDAOImpl();
     //QueryBO queryBO = new QueryBOImpl();
     QueryBO queryBO = (QueryBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.QUERY);
+    ExpenseBO expenseBO = (ExpenseBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.EXPENSES);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -129,7 +131,8 @@ public class DashboardController implements Initializable {
 
         //Map<String, Map<String, Double>> expenseData = chartDataModel.getMonthlyExpensesByCategory();
         //Map<String, Map<String, Double>> expenseData = chartDAO.getMonthlyExpensesByCategory();
-        Map<String, Map<String, Double>> expenseData = chartBO.getMonthlyExpensesByCategory();
+        //Map<String, Map<String, Double>> expenseData = chartBO.getMonthlyExpensesByCategory();
+        Map<String, Map<String, Double>> expenseData = expenseBO.getMonthlyExpensesByCategory();
 
         for (String category : expenseData.keySet()) {
             XYChart.Series<String, Number> series = new XYChart.Series<>();

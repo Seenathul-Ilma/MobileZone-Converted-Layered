@@ -9,6 +9,8 @@ import lk.ijse.gdse71.mobilezone.entity.Expense;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ExpenseDAOImpl implements ExpenseDAO {
     @Override
@@ -110,5 +112,21 @@ public class ExpenseDAOImpl implements ExpenseDAO {
             );
         }
         return null;
+    }
+
+    @Override
+    public Map<String, Map<String, Double>> getMonthlyExpensesByCategory() throws SQLException, ClassNotFoundException {
+        Map<String, Map<String, Double>> expenseData = new HashMap<>();
+        ResultSet rst = SQLUtil.execute("select expCategory, DATE_FORMAT(date, '%Y-%m') AS month, SUM(amount) as total_expense from expenses group by expCategory, month order by month, expCategory");
+
+        while (rst.next()) {
+            String expCategory = rst.getString("expCategory");
+            String month = rst.getString("month");
+            double totalExpense = rst.getDouble("total_expense");
+
+            expenseData.putIfAbsent(expCategory, new HashMap<>());
+            expenseData.get(expCategory).put(month, totalExpense);
+        }
+        return expenseData;
     }
 }

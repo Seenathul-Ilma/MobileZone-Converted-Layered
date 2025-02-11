@@ -5,6 +5,7 @@ import lk.ijse.gdse71.mobilezone.dto.ExpenseDTO;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Map;
 
 public interface ExpenseBO extends SuperBO {
     ArrayList<ExpenseDTO> getAllExpenses() throws SQLException, ClassNotFoundException;
@@ -16,4 +17,6 @@ public interface ExpenseBO extends SuperBO {
     boolean updateExpense(ExpenseDTO expenseDTO) throws SQLException, ClassNotFoundException;
 
     boolean deleteExpense(String expId) throws SQLException, ClassNotFoundException;
+
+    Map<String, Map<String, Double>> getMonthlyExpensesByCategory() throws SQLException, ClassNotFoundException;
 }
