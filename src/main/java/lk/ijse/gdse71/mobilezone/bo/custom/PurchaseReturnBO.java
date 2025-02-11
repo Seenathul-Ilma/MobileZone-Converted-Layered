@@ -6,6 +6,7 @@ import lk.ijse.gdse71.mobilezone.dto.PurchaseReturnDTO;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Map;
 
 public interface PurchaseReturnBO extends SuperBO {
     String getNextPurchaseReturnId() throws SQLException, ClassNotFoundException;
@@ -13,4 +14,7 @@ public interface PurchaseReturnBO extends SuperBO {
     boolean saveReturnDetailsList(ArrayList<PurchaseDetailDTO> purchaseDetailDTOS) throws SQLException, ClassNotFoundException;
 
     boolean savePurchaseReturn(PurchaseReturnDTO purchaseReturnDTO) throws SQLException;
+
+    Map<Integer, Integer> getMonthlyPurchaseReturnData() throws SQLException, ClassNotFoundException;
+
 }

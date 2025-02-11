@@ -17,5 +17,5 @@ public interface ChartBO extends SuperBO {
 
     //Map<Integer, Integer> getMonthlyPurchasesData() throws SQLException, ClassNotFoundException;
 
-    Map<Integer, Integer> getMonthlyPurchaseReturnData() throws SQLException, ClassNotFoundException;
+    //Map<Integer, Integer> getMonthlyPurchaseReturnData() throws SQLException, ClassNotFoundException;
 }

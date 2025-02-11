@@ -8,6 +8,8 @@ import lk.ijse.gdse71.mobilezone.entity.PurchaseReturn;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class PurchaseReturnDAOImpl implements PurchaseReturnDAO {
     @Override
@@ -67,6 +69,20 @@ public class PurchaseReturnDAOImpl implements PurchaseReturnDAO {
     //public PurchaseReturnDTO findById(String id) throws SQLException, ClassNotFoundException {
     public PurchaseReturn findById(String id) throws SQLException, ClassNotFoundException {
         return null;
+    }
+
+    @Override
+    public Map<Integer, Integer> getMonthlyPurchaseReturnData() throws SQLException, ClassNotFoundException {
+        Map<Integer, Integer> returnData = new HashMap<>();
+        ResultSet resultSet = SQLUtil.execute("SELECT MONTH(returnDate) AS month, COUNT(*) AS total_returns FROM purReturn GROUP BY MONTH(returnDate)");
+
+        while (resultSet.next()) {
+            int month = resultSet.getInt("month");
+            int totalReturns = resultSet.getInt("total_returns");
+            returnData.put(month, totalReturns);
+        }
+
+        return returnData;
     }
 
     /*public boolean saveReturn(PurchaseReturnDTO purchaseReturnDTO) throws SQLException {

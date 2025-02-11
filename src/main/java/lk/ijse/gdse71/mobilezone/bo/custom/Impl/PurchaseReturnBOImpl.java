@@ -18,6 +18,7 @@ import lk.ijse.gdse71.mobilezone.entity.PurchaseReturn;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Map;
 
 public class PurchaseReturnBOImpl implements PurchaseReturnBO {
     //private final PurchaseDAOImpl purchaseDAO = new PurchaseDAOImpl();
@@ -124,5 +125,9 @@ public class PurchaseReturnBOImpl implements PurchaseReturnBO {
     @Override
     public String getNextPurchaseReturnId() throws SQLException, ClassNotFoundException {
         return purchaseReturnDAO.getNextId();
+    }
+
+    public Map<Integer, Integer> getMonthlyPurchaseReturnData() throws SQLException, ClassNotFoundException {
+        return purchaseReturnDAO.getMonthlyPurchaseReturnData();
     }
 }
