@@ -7,9 +7,12 @@ import lk.ijse.gdse71.mobilezone.entity.Purchase;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Map;
 
 //public interface PurchaseDAO extends CrudDAO<PurchaseDTO> {
 public interface PurchaseDAO extends CrudDAO<Purchase> {
+
+    Map<Integer, Integer> getMonthlyPurchasesData() throws SQLException, ClassNotFoundException;
     /*
     //String getNextId() throws SQLException;
 

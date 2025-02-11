@@ -70,6 +70,7 @@ public class DashboardController implements Initializable {
     ExpenseBO expenseBO = (ExpenseBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.EXPENSES);
     OrderBO orderBO = (OrderBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.ORDER);
     OrderReturnBO orderReturnBO = (OrderReturnBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.ORDER_RETURN);
+    PurchaseBO purchaseBO = (PurchaseBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.PURCHASE);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -202,7 +203,8 @@ public class DashboardController implements Initializable {
             // 3rd Line for purchases per month
             //Map<Integer, Integer> data3 = chartDataModel.getMonthlyPurchasesData();
             //Map<Integer, Integer> data3 = chartDAO.getMonthlyPurchasesData();
-            Map<Integer, Integer> data3 = chartBO.getMonthlyPurchasesData();
+            //Map<Integer, Integer> data3 = chartBO.getMonthlyPurchasesData();
+            Map<Integer, Integer> data3 = purchaseBO.getMonthlyPurchasesData();
 
             XYChart.Series<Number, Number> series3 = new XYChart.Series<>();
             series3.setName("Purchases");

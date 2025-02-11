@@ -15,7 +15,7 @@ public interface ChartDAO extends CrudDAO<Chart> {
 
     //Map<Integer, Integer> getMonthlyOrderReturnsData() throws SQLException, ClassNotFoundException;
 
-    Map<Integer, Integer> getMonthlyPurchasesData() throws SQLException, ClassNotFoundException;
+    //Map<Integer, Integer> getMonthlyPurchasesData() throws SQLException, ClassNotFoundException;
 
     Map<Integer, Integer> getMonthlyPurchaseReturnData() throws SQLException, ClassNotFoundException;
 }

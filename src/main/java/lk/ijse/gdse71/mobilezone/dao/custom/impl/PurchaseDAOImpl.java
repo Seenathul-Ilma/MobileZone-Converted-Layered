@@ -10,6 +10,8 @@ import lk.ijse.gdse71.mobilezone.entity.Purchase;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class PurchaseDAOImpl implements PurchaseDAO {
     @Override
@@ -110,6 +112,19 @@ public class PurchaseDAOImpl implements PurchaseDAO {
             );
         }
         return null;
+    }
+
+    public Map<Integer, Integer> getMonthlyPurchasesData() throws SQLException, ClassNotFoundException {
+        Map<Integer, Integer> purchaseData = new HashMap<>();
+        ResultSet resultSet = SQLUtil.execute("SELECT MONTH(purchaseDate) AS month, COUNT(*) AS total_purchases FROM purchase GROUP BY MONTH(purchaseDate)");
+
+        while (resultSet.next()) {
+            int month = resultSet.getInt("month");
+            int totalPurchases = resultSet.getInt("total_purchases");
+            purchaseData.put(month, totalPurchases);
+        }
+
+        return purchaseData;
     }
 
 

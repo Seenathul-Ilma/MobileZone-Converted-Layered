@@ -6,6 +6,7 @@ import lk.ijse.gdse71.mobilezone.dto.PurchaseDetailDTO;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Map;
 
 public interface PurchaseBO extends SuperBO {
     String getNextPurchaseId() throws SQLException, ClassNotFoundException;
@@ -21,4 +22,6 @@ public interface PurchaseBO extends SuperBO {
     PurchaseDTO findPurchaseById(String purchaseId) throws SQLException, ClassNotFoundException;
 
     String confirmItemBought(String selectedPurchaseId, String selectedItemId) throws SQLException, ClassNotFoundException;
+
+    Map<Integer, Integer> getMonthlyPurchasesData() throws SQLException, ClassNotFoundException;
 }

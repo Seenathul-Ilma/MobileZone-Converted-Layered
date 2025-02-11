@@ -22,6 +22,7 @@ import lk.ijse.gdse71.mobilezone.entity.PurchaseDetail;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Map;
 
 public class PurchaseBOImpl implements PurchaseBO {
     //PurchaseDAOImpl purchaseDAO = new PurchaseDAOImpl();
@@ -168,6 +169,11 @@ public class PurchaseBOImpl implements PurchaseBO {
 
     public String getNextPurchaseId() throws SQLException, ClassNotFoundException {
         return purchaseDAO.getNextId();
+    }
+
+    @Override
+    public Map<Integer, Integer> getMonthlyPurchasesData() throws SQLException, ClassNotFoundException {
+        return purchaseDAO.getMonthlyPurchasesData();
     }
 
     /*public String confirmBoughtFromSupplier(String selectedSupplierId, String selectedPurchaseId, String selectedItemId) throws SQLException, ClassNotFoundException {
