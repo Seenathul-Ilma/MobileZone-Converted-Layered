@@ -6,6 +6,7 @@ import lk.ijse.gdse71.mobilezone.dto.OrderDetailDTO;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Map;
 
 public interface OrderBO extends SuperBO {
     boolean saveOrderDetailsList(ArrayList<OrderDetailDTO> orderDetailsDTOS) throws SQLException, ClassNotFoundException;
@@ -24,5 +25,7 @@ public interface OrderBO extends SuperBO {
 
     String confirmItemBought(String selectedOrderId, String selectedItemId) throws SQLException, ClassNotFoundException;
 
-    //String confirmCustomerBought(String selectedCustomerId, String selectedOrderId, String selectedItemId) throws SQLException;
+    Map<Integer, Integer> getMonthlyOrderData() throws SQLException, ClassNotFoundException;
+
+        //String confirmCustomerBought(String selectedCustomerId, String selectedOrderId, String selectedItemId) throws SQLException;
 }

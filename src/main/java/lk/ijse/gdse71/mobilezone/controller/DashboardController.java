@@ -8,6 +8,7 @@ import javafx.scene.layout.AnchorPane;
 import lk.ijse.gdse71.mobilezone.bo.BOFactory;
 import lk.ijse.gdse71.mobilezone.bo.custom.ChartBO;
 import lk.ijse.gdse71.mobilezone.bo.custom.ExpenseBO;
+import lk.ijse.gdse71.mobilezone.bo.custom.OrderBO;
 import lk.ijse.gdse71.mobilezone.bo.custom.QueryBO;
 
 import java.net.URL;
@@ -70,6 +71,7 @@ public class DashboardController implements Initializable {
     //QueryBO queryBO = new QueryBOImpl();
     QueryBO queryBO = (QueryBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.QUERY);
     ExpenseBO expenseBO = (ExpenseBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.EXPENSES);
+    OrderBO orderBO = (OrderBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.ORDER);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -169,7 +171,8 @@ public class DashboardController implements Initializable {
         try {
             //Map<Integer, Integer> data1 = chartDataModel.getMonthlyOrderData();
             //Map<Integer, Integer> data1 = chartDAO.getMonthlyOrderData();
-            Map<Integer, Integer> data1 = chartBO.getMonthlyOrderData();
+            //Map<Integer, Integer> data1 = chartBO.getMonthlyOrderData();
+            Map<Integer, Integer> data1 = orderBO.getMonthlyOrderData();
 
             // Set axis labels
             xAxis.setLabel("Number Of Month");

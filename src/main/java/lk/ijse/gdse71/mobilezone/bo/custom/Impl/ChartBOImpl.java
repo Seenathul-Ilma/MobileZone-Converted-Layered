@@ -12,9 +12,9 @@ public class ChartBOImpl implements ChartBO {
     QueryDAO queryDAO = (QueryDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOType.QUERY);
     ChartDAO chartDAO = (ChartDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOType.CHART);
 
-    public Map<Integer, Integer> getMonthlyOrderData() throws SQLException, ClassNotFoundException {
+    /*public Map<Integer, Integer> getMonthlyOrderData() throws SQLException, ClassNotFoundException {
         return chartDAO.getMonthlyOrderData();
-    }
+    }*/
 
     public Map<Integer, Integer> getMonthlyOrderReturnsData() throws SQLException, ClassNotFoundException {
         return chartDAO.getMonthlyOrderReturnsData();

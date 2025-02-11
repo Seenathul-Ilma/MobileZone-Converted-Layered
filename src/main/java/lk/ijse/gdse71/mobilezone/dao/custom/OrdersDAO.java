@@ -7,9 +7,12 @@ import lk.ijse.gdse71.mobilezone.entity.Order;
 import lk.ijse.gdse71.mobilezone.entity.OrderDetail;
 
 import java.sql.SQLException;
+import java.util.Map;
 
 //public interface OrdersDAO extends CrudDAO<OrderDTO> {
 public interface OrdersDAO extends CrudDAO<Order> {
+    Map<Integer, Integer> getMonthlyOrderData() throws SQLException, ClassNotFoundException;
+
 
     //boolean save(OrderDetailDTO orderDetailsDTO) throws SQLException;
     //boolean save(OrderDetail entity) throws SQLException;

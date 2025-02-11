@@ -9,6 +9,8 @@ import lk.ijse.gdse71.mobilezone.entity.Order;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class OrdersDAOImpl implements OrdersDAO {
     //private final OrderDetailModel orderDetailModel = new OrderDetailModel();
@@ -111,6 +113,20 @@ public class OrdersDAOImpl implements OrdersDAO {
             );
         }
         return null;
+    }
+
+    @Override
+    public Map<Integer, Integer> getMonthlyOrderData() throws SQLException, ClassNotFoundException {
+        Map<Integer, Integer> orderData = new HashMap<>();
+        ResultSet resultSet = SQLUtil.execute("SELECT MONTH(orderDate) AS month, COUNT(*) AS total_orders FROM orders GROUP BY MONTH(orderDate)");
+
+        while (resultSet.next()) {
+            int month = resultSet.getInt("month");
+            int totalOrders = resultSet.getInt("total_orders");
+            orderData.put(month, totalOrders);
+        }
+
+        return orderData;
     }
 
     //@Override

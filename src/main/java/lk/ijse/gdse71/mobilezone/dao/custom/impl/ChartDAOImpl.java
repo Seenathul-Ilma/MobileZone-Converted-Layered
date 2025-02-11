@@ -13,7 +13,7 @@ import java.util.Map;
 
 public class ChartDAOImpl implements ChartDAO {
 
-    public Map<Integer, Integer> getMonthlyOrderData() throws SQLException, ClassNotFoundException {
+    /*public Map<Integer, Integer> getMonthlyOrderData() throws SQLException, ClassNotFoundException {
         Map<Integer, Integer> orderData = new HashMap<>();
         ResultSet resultSet = SQLUtil.execute("SELECT MONTH(orderDate) AS month, COUNT(*) AS total_orders FROM orders GROUP BY MONTH(orderDate)");
 
@@ -24,7 +24,7 @@ public class ChartDAOImpl implements ChartDAO {
         }
 
         return orderData;
-    }
+    }*/
 
     public Map<Integer, Integer> getMonthlyOrderReturnsData() throws SQLException, ClassNotFoundException {
         Map<Integer, Integer> returnData = new HashMap<>();

@@ -22,6 +22,7 @@ import lk.ijse.gdse71.mobilezone.entity.OrderDetail;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Map;
 
 public class OrderBOImpl implements OrderBO {
     //OrdersDAO ordersDAO = new OrdersDAOImpl();
@@ -191,6 +192,10 @@ public class OrderBOImpl implements OrderBO {
         System.out.println("confirm item bought");
         //return ordersDAO.confirmItemBought(selectedOrderId, selectedItemId);
         return orderDetailDAO.confirmItemBought(selectedOrderId, selectedItemId);
+    }
+
+    public Map<Integer, Integer> getMonthlyOrderData() throws SQLException, ClassNotFoundException {
+        return ordersDAO.getMonthlyOrderData();
     }
 
     /*@Override
