@@ -108,7 +108,7 @@ public class SendMailController {
     private void sendEmailWithSendgrid(String from, String customerEmail, String subject, String body) {
         String USER_NAME = "apikey";   // Never change this..
 
-        String PASSWORD = "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"; // Enter ur sendgrid API key
+        String PASSWORD = "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"; // Enter ur sendgrid API key
 
         Properties props = new Properties();
 
