@@ -30,7 +30,7 @@ public class SendMailController {
             return;
         }
 
-        final String FROM = "Enter Sender's Email Address";
+        final String FROM = "seenathulilma121243@gmail.com";  //Enter Sender's Email Address
 
         String subject = txtSubject.getText();
         String body = txtBody.getText();
@@ -44,7 +44,7 @@ public class SendMailController {
     }
 
     private void sendEmailWithGmail(String from, String customerEmail, String subject, String messageBody) {
-        String PASSWORD = "Enter ur app password here.."; // Enter ur app password here
+        String PASSWORD = "mtrm qcsm gery orqu"; // Enter ur app password here
 
         Properties props = new Properties();
 
@@ -92,7 +92,7 @@ public class SendMailController {
             return;
         }
 
-        final String FROM = "Enter Sender's Email Address";
+        final String FROM = "seenathulilma121243@gmail.com";  //Enter Sender's Email Address
 
         String subject = txtSubject.getText();
         String body = txtBody.getText();
@@ -106,7 +106,7 @@ public class SendMailController {
     }
 
     private void sendEmailWithSendgrid(String from, String customerEmail, String subject, String body) {
-        String USER_NAME = "apikey";
+        String USER_NAME = "apikey";   // Never change this..
 
         String PASSWORD = "Enter ur sendgrid API key"; // Enter ur sendgrid API key
 

@@ -378,8 +378,8 @@ public class LogInCredentialController implements Initializable {
 
     @FXML
     void ReceiveEmailOnAction(ActionEvent event) {
-        final String FROM = "Enter Sender's Email Address ";
-        String recipient = "Enter Recipient's Email Address ";
+        final String FROM = "seenathulilma121243@gmail.com";     // Enter Sender's Email Address
+        String recipient = "zeenathulilma121243@gmail.com";   // Enter Recipient's Email Address
         String subject = "Verification code has been received!";
         generatedVerificationCode = PasswordGenerator.generatePassword(12);
         String body = "Your verification code:- "+ generatedVerificationCode;
@@ -388,7 +388,7 @@ public class LogInCredentialController implements Initializable {
     }
 
     private void sendEmailWithGmail(String from, String recipient, String subject, String body) {
-        String PASSWORD = "Enter ur app password here"; // Enter ur app password here
+        String PASSWORD = "mtrm qcsm gery orqu"; // Enter ur app password here
 
         Properties props = new Properties();
 
