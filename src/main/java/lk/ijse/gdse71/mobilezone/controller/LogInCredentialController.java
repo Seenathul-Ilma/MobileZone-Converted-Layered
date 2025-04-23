@@ -102,10 +102,10 @@ public class LogInCredentialController implements Initializable {
 
         try {
             if(VboxCredentialDetails.isVisible()){
-                VboxCredentialDetails.setVisible(false);
+                VboxCredentialDetails.setVisible(true);
             }
             if(tblCredential.isVisible()){
-                tblCredential.setVisible(false);
+                tblCredential.setVisible(true);
             }
             refreshPage();
         } catch (Exception e) {

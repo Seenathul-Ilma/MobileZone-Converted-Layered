@@ -16,5 +16,4 @@ public class Item {
     private int qtyOnHand;
     private int reOrderLevel;
     private double unitPrice;
-
 }
